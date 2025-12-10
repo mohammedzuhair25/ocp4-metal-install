@@ -7,18 +7,21 @@ compute:
 controlPlane:
   hyperthreading: Enabled
   name: master
-  replicas: 3
+  replicas: 1
 metadata:
   name: lab # Cluster name
 networking:
   clusterNetwork:
     - cidr: 10.128.0.0/14
       hostPrefix: 23
-  networkType: OpenShiftSDN
+  networkType: OVNKubernetes
   serviceNetwork:
     - 172.30.0.0/16
+proxy:
+  httpProxy: http://192.168.22.10:3128
+  httpsProxy: http://192.168.22.10:3128
+  noProxy: 127.0.0.1,localhost,.svc,.cluster.local,192.168.22.0/24,api.lab.ocp.lan,api-int.lab.ocp.lan
 platform:
   none: {}
-fips: false
-pullSecret: '{"auths": ...}'
-sshKey: "ssh-ed25519 AAAA..."
+pullSecret: ''
+sshKey:
