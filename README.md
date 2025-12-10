@@ -677,3 +677,9 @@
    ```bash
    oc edit schedulers.config.openshift.io cluster
    ```
+sudo firewall-cmd --permanent --add-port=53/tcp --zone=external
+sudo firewall-cmd --permanent --add-port=53/udp --zone=internal
+sudo firewall-cmd --permanent --add-port=3128/tcp --zone=internal
+sudo firewall-cmd --permanent --add-port=3128/tcp --zone=internal
+firewall-cmd --reload
+
